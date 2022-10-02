@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+
+<div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Make</th>
+				<th>Model</th>
+				<th>Registration</th>
+				<th>Year</th>
+				<th>Engine Number</th>
+				<th>Chassis Number</th>
+				<th>Date Created</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for object in object_list %}
+			<tr>
+				<td>{{object.carMake | upper}}</td>
+				<td>{{object.carModel | upper }}</td>
+				<td>{{object.carReg | upper}}  </td>
+				<td>{{object.carYear}}</td>
+				<td>{{object.engNumber | upper}} </td>
+				<td>{{object.chassNumber | upper }}</td>
+				<td>{{object.created_at}}</td>
+				<td><a href="{% url 'carUpdate' object.pk %}" class="btn btn-success">Update</a><a href="{% url 'carDetail' object.pk %}" class="btn btn-primary">Detail</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		
+	</table>
+</div>
+
+
+
+{% endblock %}

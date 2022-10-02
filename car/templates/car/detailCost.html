@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load thumbnail %}
+{% block content %}
+
+<div>
+ 
+  <table class="table table-striped table-hover table-bordered" style="width:50%">
+  <tr>
+    <th>Car Reg:</th>
+    <td>{{object.car.carReg}}</td>
+  </tr>
+  <tr>
+    <th>CIF cost:</th>
+    <td>{{object.cif_cost}}</td>
+  </tr>
+  <tr>
+    <th>Delivery Order:</th>
+    <td>{{object.delivery_order}}</td>
+  </tr>
+    <th>CFS Charges:</th>
+    <td>{{object.cfs_charges}}</td>
+  </tr>
+    <th>KEBS:</th>
+    <td>{{object.kebs}}</td>
+  </tr>
+    <th>NTSA:</th>
+    <td>{{object.ntsa}}</td>
+  </tr>
+    <th>Insurance:</th>
+    <td>{{object.insurance}}</td>
+  </tr>
+    <th>Agency:</th>
+    <td>{{object.agency}}</td>
+  </tr>
+  </tr>
+    <th>Transport:</th>
+    <td>{{object.transport}}</td>
+  </tr>
+  <tr>
+    <th>Total Cost</th>
+    <td style="color:red;">{{object.total_cost}}</td>
+  </tr>
+</table>
+<button></button><a href="{% url 'costDelete' object.pk
+%}" class="btn btn-danger">Delete</a> <a href="{% url 'costList' %}" class="btn btn-primary">Back</a>
+</div>
+
+{% endblock %}

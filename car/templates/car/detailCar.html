@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load thumbnail %}
+{% block content %}
+
+<h5>Make:{{ object.carMake }} </h5>
+<h5>Model: {{ object.carModel }}</h5>
+<h5>Year: {{ object.carReg }}</h5>
+
+<div class="card" style="width: 18rem;">
+  <img src="{{object.image1.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{object.carModel}}</h5>
+    <p class="card-text">{{object.description}}</p>
+    <a href="{% url 'carDelete' object.pk %}" class="btn btn-danger">Delete</a> 
+    <a href="{% url 'carList' %}" class="btn btn-primary">Back</a>
+  </div>
+</div>
+
+{% endblock %}

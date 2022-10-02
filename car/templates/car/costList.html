@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+
+<div>
+  
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Make</th>
+				<th>Model</th>
+				<th>Registration</th>
+				<th>Year</th>
+				<th>Engine Number</th>
+				<th>Chassis Number</th>
+				<th>Date Created</th>
+				<th>Total Cost</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for object in object_list %}
+			<tr>
+				<td>{{object.car.carMake | upper}}</td>
+				<td>{{object.car.carModel | upper }}</td>
+				<td>{{object.car.carReg | upper}}  </td>
+				<td>{{object.car.carYear}}</td>
+				<td>{{object.car.engNumber | upper}} </td>
+				<td>{{object.car.chassNumber | upper }}</td>
+				<td>{{object.car.created_at}}</td>
+				<td style="color: red;">{{object.total_cost}}</td>
+				<td><a href="{% url 'costUpdate' object.pk %}" class="btn btn-green">Update</a> <a href="{% url 'costDetail' object.pk %}" class="btn btn-primary">Details</a></td>
+
+
+			</tr>
+			{% endfor %}
+		</tbody>
+		
+	</table>
+</div>
+{% endblock %}
+

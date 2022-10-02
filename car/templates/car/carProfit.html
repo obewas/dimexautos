@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% bootstrap_form form %}
+		<input type="submit" name="Create">
+		
+	</form>
+	<div>
+		
+    <h5>{{profit.id}}</h5>
+  
+	</div>
+		
+
+{% endblock %}
